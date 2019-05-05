@@ -1,0 +1,385 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2019/5/4</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">16:26:10</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc" class="file"><acronym title="E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc">E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">19</td></tr>
+</table>
+</td>
+</table><a name="IDIGGCBORANB2XKDK04W4GVLIH5D521TASFADITCMUL4GVVAFY5WYO"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAIHLPVIMCHVVDAYAFOJNAY0BKG14Y2QZXD3EBLKPSX1N3B04MQOK">Clearance Constraint (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDS2GH0CRTKQ3FHG3J3MOGKGSTFBS1HNU1LTVAS5MTPFL2OCOZCVSK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYBMNUBOZBXDOEZVNDIMZGAJAKAKNEFCDYG4YIJVIU4IEVQDWXYG">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID44RPZEHRN3M2IZWB4TEYOR1HJDPMLMWNUQUBTZPTR3LYPCQ123TM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJIHBDRAH0BWDL35RHZEYJJ0T5IXQVUOOMK1LCSHRBZ3CM35MED3P">Width Constraint (Min=6mil) (Max=50mil) (Preferred=8mil) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKDVHZNIMNCBOKKJKNRKIZCGE4DLIGU23XA43XNCUM4RMKZ0NPEML">Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRZWWKW1IYCLTLLCGVTLPTK0ETFY0FOO4SRNIRIGWHOSXNOJDBDZ">Hole Size Constraint (Min=0.984mil) (Max=157.48mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEXATZKKFCRM5MFKGMRNK0OPOVNP0TA54544BP3D0ZDB4XHDPTM0D">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1T5TEOKTWWYGNZXIMIVQPIIK4DVW1P35VBOXA2CZFBSJFLCGBWMD">Minimum Solder Mask Sliver (Gap=1mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5BFJUD3DQP3VDVV53BYQOUQAGMSD1RVRC2RE1PHJ1D3IXIESHOEL">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYZZ5VM42YTGAIGN2SBZNOWNJIMIVNOHMA03WWIHOUFE44OK5GLJD">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">19</td>
+</tr>
+</table><br><a name="IDJIHBDRAH0BWDL35RHZEYJJ0T5IXQVUOOMK1LCSHRBZ3CM35MED3P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=6mil) (Max=50mil) (Preferred=8mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3522.24mil|Location2.X=3530.64mil|Location1.Y=3213.5mil|Location2.Y=3216.5mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3522.24mil|Location2.X=3530.64mil|Location1.Y=3213.5mil|Location2.Y=3216.5mil|Absolute=True">Width Constraint: Track (3510mil,3215mil)(3537.481mil,3215mil) on Top Layer Actual Width = 0mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3540.331mil|Location2.X=3547.685mil|Location1.Y=3217.85mil|Location2.Y=3222.805mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3540.331mil|Location2.X=3547.685mil|Location1.Y=3217.85mil|Location2.Y=3222.805mil|Absolute=True">Width Constraint: Track (3537.481mil,3215mil)(3546.182mil,3223.7mil) on Top Layer Actual Width = 0mil, Target Width = 6mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDEXATZKKFCRM5MFKGMRNK0OPOVNP0TA54544BP3D0ZDB4XHDPTM0D"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole To Hole Clearance (Gap=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3186.167mil|Location2.X=3193.833mil|Location1.Y=3053.883mil|Location2.Y=3061.549mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3186.167mil|Location2.X=3193.833mil|Location1.Y=3053.883mil|Location2.Y=3061.549mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3190mil,3057.716mil) from Top Layer to Bottom Layer And Via (3190mil,3057.716mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3193.923mil|Location2.X=3201.589mil|Location1.Y=3322.427mil|Location2.Y=3330.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3193.923mil|Location2.X=3201.589mil|Location1.Y=3322.427mil|Location2.Y=3330.093mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3197.756mil,3326.26mil) from Top Layer to Bottom Layer And Via (3197.756mil,3326.26mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3288.411mil|Location2.X=3296.077mil|Location1.Y=3479.909mil|Location2.Y=3487.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3288.411mil|Location2.X=3296.077mil|Location1.Y=3479.909mil|Location2.Y=3487.575mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3292.244mil,3483.742mil) from Top Layer to Bottom Layer And Via (3292.244mil,3483.742mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.167mil|Location2.X=3343.833mil|Location1.Y=2700.695mil|Location2.Y=2708.361mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3336.167mil|Location2.X=3343.833mil|Location1.Y=2700.695mil|Location2.Y=2708.361mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3340mil,2704.528mil) from Top Layer to Bottom Layer And Via (3340mil,2704.528mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3381.167mil|Location2.X=3388.833mil|Location1.Y=3278.609mil|Location2.Y=3286.275mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3381.167mil|Location2.X=3388.833mil|Location1.Y=3278.609mil|Location2.Y=3286.275mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3385mil,3282.442mil) from Top Layer to Bottom Layer And Via (3385mil,3282.442mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3381.167mil|Location2.X=3388.833mil|Location1.Y=3533.727mil|Location2.Y=3541.393mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3381.167mil|Location2.X=3388.833mil|Location1.Y=3533.727mil|Location2.Y=3541.393mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3385mil,3537.56mil) from Top Layer to Bottom Layer And Via (3385mil,3537.56mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3386.167mil|Location2.X=3393.833mil|Location1.Y=3127.111mil|Location2.Y=3134.777mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3386.167mil|Location2.X=3393.833mil|Location1.Y=3127.111mil|Location2.Y=3134.777mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3390mil,3130.944mil) from Top Layer to Bottom Layer And Via (3390mil,3130.944mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3473.607mil|Location2.X=3481.273mil|Location1.Y=3288.607mil|Location2.Y=3296.273mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3473.607mil|Location2.X=3481.273mil|Location1.Y=3288.607mil|Location2.Y=3296.273mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3477.44mil,3292.44mil) from Top Layer to Bottom Layer And Via (3477.44mil,3292.44mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3676.049mil|Location2.X=3683.715mil|Location1.Y=3651.167mil|Location2.Y=3658.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3676.049mil|Location2.X=3683.715mil|Location1.Y=3651.167mil|Location2.Y=3658.833mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3679.882mil,3655mil) from Top Layer to Bottom Layer And Via (3679.882mil,3655mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3731.719mil|Location2.X=3739.385mil|Location1.Y=2916.521mil|Location2.Y=2924.187mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3731.719mil|Location2.X=3739.385mil|Location1.Y=2916.521mil|Location2.Y=2924.187mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3735.552mil,2920.354mil) from Top Layer to Bottom Layer And Via (3735.552mil,2920.354mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3836.285mil|Location2.X=3843.951mil|Location1.Y=3651.167mil|Location2.Y=3658.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3836.285mil|Location2.X=3843.951mil|Location1.Y=3651.167mil|Location2.Y=3658.833mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3840.118mil,3655mil) from Top Layer to Bottom Layer And Via (3840.118mil,3655mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3881.639mil|Location2.X=3889.305mil|Location1.Y=3396.167mil|Location2.Y=3403.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3881.639mil|Location2.X=3889.305mil|Location1.Y=3396.167mil|Location2.Y=3403.833mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (3885.472mil,3400mil) from Top Layer to Bottom Layer And Via (3885.472mil,3400mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3996.167mil|Location2.X=4003.833mil|Location1.Y=2881.167mil|Location2.Y=2888.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3996.167mil|Location2.X=4003.833mil|Location1.Y=2881.167mil|Location2.Y=2888.833mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (4000mil,2885mil) from Top Layer to Bottom Layer And Via (4000mil,2885mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4046.167mil|Location2.X=4053.833mil|Location1.Y=2751.167mil|Location2.Y=2758.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4046.167mil|Location2.X=4053.833mil|Location1.Y=2751.167mil|Location2.Y=2758.833mil|Absolute=True">Hole To Hole Clearance Constraint: (Collision &lt; 10mil) Between Via (4050mil,2755mil) from Top Layer to Bottom Layer And Via (4050mil,2755mil) from Top Layer to Bottom Layer Pad/Via Touching Holes</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID5BFJUD3DQP3VDVV53BYQOUQAGMSD1RVRC2RE1PHJ1D3IXIESHOEL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3533.981mil|Location2.X=3546.685mil|Location1.Y=3211.5mil|Location2.Y=3227.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3533.981mil|Location2.X=3546.685mil|Location1.Y=3211.5mil|Location2.Y=3227.749mil|Absolute=True">Net Antennae: Track (3510mil,3215mil)(3537.481mil,3215mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3506.5mil|Location2.X=3519.204mil|Location1.Y=3211.5mil|Location2.Y=3227.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3506.5mil|Location2.X=3519.204mil|Location1.Y=3211.5mil|Location2.Y=3227.749mil|Absolute=True">Net Antennae: Track (3510mil,3215mil)(3537.481mil,3215mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3542.682mil|Location2.X=3555.385mil|Location1.Y=3220.2mil|Location2.Y=3236.449mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3542.682mil|Location2.X=3555.385mil|Location1.Y=3220.2mil|Location2.Y=3236.449mil|Absolute=True">Net Antennae: Track (3537.481mil,3215mil)(3546.182mil,3223.7mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

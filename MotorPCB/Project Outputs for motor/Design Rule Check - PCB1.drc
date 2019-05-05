@@ -1,0 +1,61 @@
+Protel Design System Design Rule Check
+PCB File : E:\Desktop\PCB\MotorPCB\PCB1.PcbDoc
+Date     : 2019/5/4
+Time     : 16:26:10
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=50mil) (Preferred=8mil) (All)
+   Violation between Width Constraint: Track (3510mil,3215mil)(3537.481mil,3215mil) on Top Layer Actual Width = 0mil, Target Width = 6mil
+   Violation between Width Constraint: Track (3537.481mil,3215mil)(3546.182mil,3223.7mil) on Top Layer Actual Width = 0mil, Target Width = 6mil
+Rule Violations :2
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.984mil) (Max=157.48mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3190mil,3057.716mil) from Top Layer to Bottom Layer And Via (3190mil,3057.716mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3197.756mil,3326.26mil) from Top Layer to Bottom Layer And Via (3197.756mil,3326.26mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3292.244mil,3483.742mil) from Top Layer to Bottom Layer And Via (3292.244mil,3483.742mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3340mil,2704.528mil) from Top Layer to Bottom Layer And Via (3340mil,2704.528mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3385mil,3282.442mil) from Top Layer to Bottom Layer And Via (3385mil,3282.442mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3385mil,3537.56mil) from Top Layer to Bottom Layer And Via (3385mil,3537.56mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3390mil,3130.944mil) from Top Layer to Bottom Layer And Via (3390mil,3130.944mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3477.44mil,3292.44mil) from Top Layer to Bottom Layer And Via (3477.44mil,3292.44mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3679.882mil,3655mil) from Top Layer to Bottom Layer And Via (3679.882mil,3655mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3735.552mil,2920.354mil) from Top Layer to Bottom Layer And Via (3735.552mil,2920.354mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3840.118mil,3655mil) from Top Layer to Bottom Layer And Via (3840.118mil,3655mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (3885.472mil,3400mil) from Top Layer to Bottom Layer And Via (3885.472mil,3400mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (4000mil,2885mil) from Top Layer to Bottom Layer And Via (4000mil,2885mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+   Violation between Hole To Hole Clearance Constraint: (Collision < 10mil) Between Via (4050mil,2755mil) from Top Layer to Bottom Layer And Via (4050mil,2755mil) from Top Layer to Bottom Layer Pad/Via Touching Holes
+Rule Violations :14
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=1mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+   Violation between Net Antennae: Track (3510mil,3215mil)(3537.481mil,3215mil) on Top Layer 
+   Violation between Net Antennae: Track (3510mil,3215mil)(3537.481mil,3215mil) on Top Layer 
+   Violation between Net Antennae: Track (3537.481mil,3215mil)(3546.182mil,3223.7mil) on Top Layer 
+Rule Violations :3
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 19
+Waived Violations : 0
+Time Elapsed        : 00:00:00
